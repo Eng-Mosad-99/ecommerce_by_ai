@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import '../../../../app/router.dart';
-import '../cubits/auth_cubit.dart';
-import '../cubits/auth_state.dart';
+import '../blocs/auth_bloc.dart';
+import '../blocs/auth_event.dart';
+import '../blocs/auth_state.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -12,7 +13,7 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: const Text('Login')),
-      body: BlocConsumer<AuthCubit, AuthState>(
+      body: BlocConsumer<AuthBloc, AuthState>(
         listener: (context, state) {
           if (state is AuthSuccess) {
             context.go(AppRouter.home);
@@ -30,7 +31,7 @@ class LoginView extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {
                 // Dummy login action
-                context.read<AuthCubit>().login('test@test.com', '123456');
+                context.read<AuthBloc>().add(const LoginEvent(email: 'test@test.com', password: '123456'));
               },
               child: const Text('Login'),
             ),

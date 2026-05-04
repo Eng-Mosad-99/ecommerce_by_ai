@@ -1,8 +1,9 @@
 export 'data/models/user_model.dart';
 export 'data/models/auth_response_model.dart';
 export 'data/repos/auth_repo.dart';
-export 'presentation/cubits/auth_cubit.dart';
-export 'presentation/cubits/auth_state.dart';
+export 'presentation/blocs/auth_bloc.dart';
+export 'presentation/blocs/auth_event.dart';
+export 'presentation/blocs/auth_state.dart';
 export 'presentation/views/login_view.dart';
 export 'presentation/views/register_view.dart';
 export 'presentation/views/forgot_password_view.dart';

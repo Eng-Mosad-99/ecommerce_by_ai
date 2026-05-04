@@ -2,7 +2,7 @@ import 'package:get_it/get_it.dart';
 import 'package:dio/dio.dart';
 import '../network/dio_client.dart';
 import '../../features/auth/data/repos/auth_repo.dart';
-import '../../features/auth/presentation/cubits/auth_cubit.dart';
+import '../../features/auth/presentation/blocs/auth_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -13,6 +13,6 @@ void setupServiceLocator() {
   // Repositories
   sl.registerLazySingleton<AuthRepo>(() => AuthRepo(sl<Dio>()));
 
-  // Cubits
-  sl.registerFactory<AuthCubit>(() => AuthCubit(sl<AuthRepo>()));
+  // Blocs
+  sl.registerFactory<AuthBloc>(() => AuthBloc(sl<AuthRepo>()));
 }

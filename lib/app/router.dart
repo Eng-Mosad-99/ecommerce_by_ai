@@ -18,7 +18,7 @@ class AppRouter {
       GoRoute(
         path: login,
         builder: (context, state) => BlocProvider(
-          create: (context) => sl<AuthCubit>(),
+          create: (context) => sl<AuthBloc>(),
           child: const LoginView(),
         ),
       ),
